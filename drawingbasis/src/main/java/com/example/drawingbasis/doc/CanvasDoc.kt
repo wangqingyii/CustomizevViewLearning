@@ -214,4 +214,111 @@ class CanvasDoc : Canvas() {
         val rectF2 = RectF(110F, 10F, 200F, 100F)
         mCanvas.drawArc(rectF2, 0F, 90F, false, paint6)
     }
+
+    /******************************************** 文本 ********************************************/
+
+    /**
+     * 绘制文字
+     * @param text 要绘制的字符串
+     * @param x X轴起始点坐标
+     * @param y Y轴起始点坐标
+     * @param paint 画笔
+     */
+    override fun drawText(text: String, x: Float, y: Float, paint: Paint) {
+        super.drawText(text, x, y, paint)
+    }
+
+    /**
+     * 绘制文字
+     * @param text 要绘制的字符串
+     * @param index 指定其实绘制字符所在的位置
+     * @param count 指定从起始绘制字符所在字符串中的索引
+     * @param x X轴起始点坐标
+     * @param y Y轴起始点坐标
+     * @param paint 画笔
+     */
+
+    override fun drawText(
+        text: CharArray,
+        index: Int,
+        count: Int,
+        x: Float,
+        y: Float,
+        paint: Paint
+    ) {
+        super.drawText(text, index, count, x, y, paint)
+    }
+
+    /**
+     * 绘制文字
+     * @param text 要绘制的字符串
+     * @param start 表示起始绘制字符所在字符串中的索引
+     * @param end 表示结束绘制字符所在字符串中的索引
+     * @param x X轴起始点坐标
+     * @param y Y轴起始点坐标
+     * @param paint 画笔
+     */
+    override fun drawText(text: String, start: Int, end: Int, x: Float, y: Float, paint: Paint) {
+        super.drawText(text, start, end, x, y, paint)
+    }
+
+    /**
+     * 绘制文字
+     * @param text 要绘制的字符串
+     * @param start 表示起始绘制字符所在字符串中的索引
+     * @param end 表示结束绘制字符所在字符串中的索引
+     * @param x X轴起始点坐标
+     * @param y Y轴起始点坐标
+     * @param paint 画笔
+     */
+    override fun drawText(
+        text: CharSequence,
+        start: Int,
+        end: Int,
+        x: Float,
+        y: Float,
+        paint: Paint
+    ) {
+        super.drawText(text, start, end, x, y, paint)
+    }
+
+    /**
+     * 沿路径绘制
+     * @param text 要绘制的字符串
+     * @param index 指定其实绘制字符所在的位置
+     * @param count 指定从起始绘制字符所在字符串中的索引
+     * @param path 路径
+     * @param hOffset 与路径起始点的水平偏移量
+     * @param vOffset 与路径中心的垂直偏移量
+     * @param paint 画笔
+     */
+    override fun drawTextOnPath(
+        text: CharArray,
+        index: Int,
+        count: Int,
+        path: Path,
+        hOffset: Float,
+        vOffset: Float,
+        paint: Paint
+    ) {
+        super.drawTextOnPath(text, index, count, path, hOffset, vOffset, paint)
+    }
+
+    /**
+     * 沿路径绘制
+     * @param text 要绘制的字符串
+     * @param path 路径
+     * @param hOffset 与路径起始点的水平偏移量
+     * @param vOffset 与路径中心的垂直偏移量
+     * @param paint 画笔
+     */
+    override fun drawTextOnPath(
+        text: String,
+        path: Path,
+        hOffset: Float,
+        vOffset: Float,
+        paint: Paint
+    ) {
+        super.drawTextOnPath(text, path, hOffset, vOffset, paint)
+    }
 }

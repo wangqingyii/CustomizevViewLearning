@@ -93,5 +93,55 @@ class BasisView : View {
         val rectF2 = RectF(110F, 10F, 200F, 100F)
         canvas.drawArc(rectF2, 0F, 90F, false, paint6)
 
+        /**
+         * 文字
+         */
+        val paint7 = Paint().apply {
+            color = Color.RED
+            strokeWidth = 5F
+            isAntiAlias = true
+            textSize = 30F
+            style = Paint.Style.FILL
+            // 设置为粗体
+            isFakeBoldText = true
+            // 设置下划线
+            isUnderlineText = true
+            // 设置带有删除线效果
+            isStrikeThruText = true
+            textSkewX = -0.25F
+        }
+        canvas.drawText("床前明月光", 10F, 100F, paint7)
+
+        /**
+         * 沿路径绘制文字
+         */
+        val paint8 = Paint().apply {
+            color = Color.RED
+            strokeWidth = 5F
+            textSize = 45F
+            style = Paint.Style.STROKE
+        }
+        // 先创建两条相同的圆形路径，并画出两条路径原型
+        val circlePath = Path().apply {
+            // 逆向绘制
+            addCircle(220F, 300F, 150F, Path.Direction.CCW)
+        }
+        // 绘制出路径原型
+        canvas.drawPath(circlePath, paint8)
+
+        val circlePath2 = Path().apply {
+            // 逆向绘制
+            addCircle(220F, 300F, 150F, Path.Direction.CCW)
+        }
+        // 绘制出路径原型
+        canvas.drawPath(circlePath2, paint8)
+
+        // 绘制原始文字与偏移文字
+        val string = "床前明月光，疑是地下霜"
+        paint8.color = Color.GREEN
+        // 将hOffset、vOffset参数值全部设为0，看原始状态是怎样的
+//        canvas.drawTextOnPath(string, circlePath, 0F, 0F, paint8)
+        // 第二条路径改变将hOffset、vOffset参数值
+        canvas.drawTextOnPath(string, circlePath2, 80F, 30F, paint8)
     }
 }
