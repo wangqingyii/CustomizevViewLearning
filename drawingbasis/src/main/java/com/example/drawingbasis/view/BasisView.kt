@@ -143,5 +143,48 @@ class BasisView : View {
 //        canvas.drawTextOnPath(string, circlePath, 0F, 0F, paint8)
         // 第二条路径改变将hOffset、vOffset参数值
         canvas.drawTextOnPath(string, circlePath2, 80F, 30F, paint8)
+        /**
+         * Region练习
+         * Region直接构造
+         */
+//        val paint8 = Paint().apply {
+//            style = Paint.Style.FILL
+//            color = Color.RED
+//        }
+//        val region = Region(Rect(50, 50, 200, 100))
+//        drawRegion(canvas, region, paint8)
+
+        /**
+         * Region间接构造
+         */
+        val paint9 = Paint().apply {
+            style = Paint.Style.FILL
+            color = Color.RED
+        }
+        val rectF3 = RectF(50F, 50F, 200F, 500F)
+        val ovalPath = Path().apply {
+            addOval(rectF3, Path.Direction.CCW)
+        }
+        // 在setPath()函数中传入一个比椭圆区域小的矩形区域，让其取交集
+        val region2 = Region()
+        region2.setPath(ovalPath,  Region(50, 50, 200, 200))
+        drawRegion(canvas,region2,paint9)
+    }
+
+    /**
+     * 自定义的,用于绘制区域的函数
+     * 通过[RegionIterator]类构造矩形集来逼近显示区域
+     * @param canvas 画布
+     * @param region 区域
+     * @param paint 画笔
+     */
+    private fun drawRegion(canvas: Canvas, region: Region, paint: Paint) {
+        // 1.构造出区域的矩形集
+        val regionIterator = RegionIterator(region)
+        val rect = Rect()
+        // 2.利用next()函数来逐个获取所有矩形并绘制出来
+        while (regionIterator.next(rect)) {
+            canvas.drawRect(rect, paint)
+        }
     }
 }

@@ -111,10 +111,10 @@ class PaintDoc : Paint() {
      * @param typeface 字体样式
      * 函数：defaultFromStyle
      * [Typeface.defaultFromStyle] 该函数会根据字体样式获取对应的默认字体，参数style取值如下
-     * [Typeface.NORMAL] 正常字体
-     * [Typeface.BOLD] 粗体
-     * [Typeface.ITALIC] 斜体
      * [Typeface.BOLD_ITALIC] 粗斜体
+     * [Typeface.NORMAL] 正常字体
+     * [Typeface.ITALIC] 斜体
+     * [Typeface.BOLD] 粗体
      * 函数：create
      * [Typeface.create] 该函数直接通过指定字体名来加载系统中自带的字体样式。如果字体样式不存在，则会用系统样式代替并返回
      */
