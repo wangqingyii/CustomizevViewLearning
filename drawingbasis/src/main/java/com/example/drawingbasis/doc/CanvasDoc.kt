@@ -399,6 +399,4 @@ class CanvasDoc : Canvas() {
     override fun restoreToCount(saveCount: Int) {
         super.restoreToCount(saveCount)
     }
-
-
 }
