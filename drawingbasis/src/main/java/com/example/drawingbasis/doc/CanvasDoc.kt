@@ -321,4 +321,84 @@ class CanvasDoc : Canvas() {
     ) {
         super.drawTextOnPath(text, path, hOffset, vOffset, paint)
     }
+
+    /******************************************** Canvas变换 ********************************************/
+
+    /**
+     * 平移
+     * @param dx 水平方向平移的距离，正数为向正方向(向右)平移的量，负数为负方向(向左)平移的量
+     * @param dy 垂直方向平移的距离，正数为向正方向(向下)平移的量，负数为负方向(向上)平移的量
+     */
+    override fun translate(dx: Float, dy: Float) {
+        super.translate(dx, dy)
+    }
+
+    /**
+     * 旋转
+     * 画布的旋转默认是围绕坐标原点来进行的，实际旋转的画布
+     * @param degrees 旋转的度数，正式指顺时针旋转，负数指逆时针旋转，它的旋转中心点是原点(0,0)
+     */
+    override fun rotate(degrees: Float) {
+        super.rotate(degrees)
+    }
+    /**
+     * 旋转
+     * @param degrees 旋转的度数，正式指顺时针旋转，负数指逆时针旋转，它的旋转中心点是原点(0,0)
+     * @param px 中心点X轴坐标
+     * @param py 中心点Y轴坐标
+     */
+//     fun rotate(degrees: Float, px: Float, py: Float) {
+//        throw RuntimeException("Stub!")
+//    }
+    /**
+     * 缩放
+     * 该函数用于变更坐标轴密度
+     * @param sx 水平方向伸缩的比例。假设原坐标轴的比例为n，不变时为1，变更后的X轴密度为n*sx。所以sx是小数表示缩小，sx是整数表示放大
+     * @param sy 垂直方向伸缩的比例，同样，sy为小数表示缩小，sy为整数表示放大
+     */
+    override fun scale(sx: Float, sy: Float) {
+        super.scale(sx, sy)
+    }
+
+    /**
+     * 扭曲
+     * @param sx 将画布在X轴方向上倾斜相应的角度，sx为倾斜角度的正切值
+     * @param sy 将画布在Y轴方向上倾斜相应的角度，sy为倾斜角度的正切值
+     */
+    override fun skew(sx: Float, sy: Float) {
+        super.skew(sx, sy)
+    }
+
+    /**
+     * 裁剪画布(clip系列函数)
+     * 注意：在使用clip系列函数时，需要禁用硬件加速功能呢
+     */
+    override fun clipRect(rect: RectF, op: Region.Op): Boolean {
+        return super.clipRect(rect, op)
+    }
+
+    /**
+     * 每次调用save函数，都会先保存当前画布状态，然后将其放入特定的栈中
+     * 示例：[SaveAndRestore]
+     */
+    override fun save(): Int {
+        return super.save()
+    }
+
+    /**
+     * 每次调用restore函数，都会把栈顶中顶层的画布状态取出来，并按照这个状态回复当前的画布，然后在这个画布上作画
+     */
+    override fun restore() {
+        super.restore()
+    }
+
+    /**
+     * 查找指定画布
+     * @param saveCount
+     */
+    override fun restoreToCount(saveCount: Int) {
+        super.restoreToCount(saveCount)
+    }
+
+
 }
